@@ -1,4 +1,4 @@
-FROM openfaas/of-watchdog:0.8.1 as watchdog
+FROM ghcr.io/openfaas/of-watchdog:0.8.4 as watchdog
 
 FROM ruby:2.7.2-slim-buster
 
@@ -20,11 +20,11 @@ RUN bundle install \
 
 WORKDIR /home/app/function
 
-RUN bundle install 
+RUN bundle install
 
 # Create a non-root user
 RUN addgroup --system app \
-    && adduser --system --ingroup app app
+  && adduser --system --ingroup app app
 
 RUN chown app:app -R /home/app
 
